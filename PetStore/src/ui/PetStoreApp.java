@@ -94,7 +94,12 @@ public class PetStoreApp {
 	
 	public static void adoptPet(List<Pet> inventory) {
 		int id = Console.getInt("Id of pet to adopt? ", 0, inventory.size()+1);
-		inventory.remove(id-1);
+		for (Pet p : inventory) {
+			if (id-1 == p.getId()) {
+				inventory.remove(id-1);
+			}
+		}
+		
 	}
 
 }
